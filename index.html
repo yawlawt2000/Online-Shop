@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UC Online Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+}
+header {
+    background: #1e1e2f;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+.container {
+    padding: 20px;
+}
+.box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-top: 10px;
+}
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.preview {
+    margin-top: 10px;
+}
+.preview img {
+    max-width: 100%;
+    border-radius: 5px;
+    display: none;
+}
+.social-btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 12px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.fb { background: #1877f2; }
+.tg { background: #0088cc; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>UC Online Shop</h1>
+<p>Upload Payment Screenshot</p>
+</header>
+
+<div class="container">
+
+<div class="box">
+<h3>📝 Order Form</h3>
+
+<form>
+    <label>Player ID</label>
+    <input type="text" required>
+
+    <label>Server</label>
+    <input type="text" required>
+
+    <label>UC Package</label>
+    <select required>
+        <option>UC 60 - 2,000 MMK</option>
+        <option>UC 325 - 10,000 MMK</option>
+        <option>UC 660 - 20,000 MMK</option>
+        <option>UC 1800 - 50,000 MMK</option>
+    </select>
+
+    <label>Payment Method</label>
+    <select required>
+        <option>WavePay</option>
+        <option>KBZPay</option>
+    </select>
+
+    <label>Payment Screenshot</label>
+    <input type="file" accept="image/*" onchange="previewImage(event)" required>
+
+    <div class="preview">
+        <img id="preview">
+    </div>
+
+    <button type="submit">Submit Order</button>
+</form>
+</div>
+
+<div class="box">
+<h3>💬 Send Order via Chat</h3>
+
+<a href="https://m.me/YOUR_FACEBOOK_PAGE" class="social-btn fb" target="_blank">
+Order via Facebook Messenger
+</a>
+
+<a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="social-btn tg" target="_blank">
+Order via Telegram
+</a>
+</div>
+
+</div>
+
+<script>
+function previewImage(event) {
+    const img = document.getElementById("preview");
+    img.src = URL.createObjectURL(event.target.files[0]);
+    img.style.display = "block";
+}
+</script>
+
+</body>
+</html>
